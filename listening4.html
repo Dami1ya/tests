@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Listening 4</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f5f7fb; color: #1f2937; }
+    .page { max-width: 900px; margin: 0 auto; padding: 24px 18px 40px; }
+    .card { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); margin-bottom: 20px; }
+    .center { text-align: center; }
+    .speed-controls { margin-top: 14px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+    .speed-btn { border: none; background: #2563eb; color: #fff; border-radius: 8px; padding: 8px 12px; font-weight: 600; cursor: pointer; }
+    .speed-btn.active { background: #1d4ed8; }
+    .answers { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .answers label { display: flex; align-items: center; gap: 8px; }
+    input[type="text"] { width: 120px; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 15px; transition: background-color 0.2s ease, border-color 0.2s ease; }
+    .correct-answer { background: #dcfce7; border-color: #22c55e; }
+    .wrong-answer { background: #fee2e2; border-color: #ef4444; }
+    .vocab-note { background: #fff; border-radius: 12px; padding: 16px 20px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); margin-bottom: 20px; }
+    .vocab-note p { margin: 0; line-height: 1.6; }
+    .nav { margin-top: 18px; text-align: center; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+    .nav a, .nav button { text-decoration: none; background: #2563eb; color: #fff; padding: 10px 14px; border-radius: 8px; font-weight: 600; border: none; cursor: pointer; }
+    .disabled-link { opacity: 0.45; pointer-events: none; cursor: not-allowed; }
+    .result { text-align: center; margin-top: 12px; font-weight: 700; }
+  </style>
+  <link rel="stylesheet" href="accessibility-controls.css" />
+  <link rel="stylesheet" href="vocab-window.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="card center">
+      <h1>Listening 4</h1>
+      <audio id="audioPlayer" controls>
+        <source src="audio4.mp3" type="audio/mpeg" />
+      </audio>
+      <div class="speed-controls">
+        <button class="speed-btn" data-speed="0.5">0.5x</button>
+        <button class="speed-btn" data-speed="0.75">0.75x</button>
+        <button class="speed-btn active" data-speed="1">1.0x</button>
+        <button class="speed-btn" data-speed="1.25">1.25x</button>
+        <button class="speed-btn" data-speed="1.5">1.5x</button>
+        <button class="speed-btn" data-speed="2">2.0x</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Complete the notes below.</h2>
+      <p><strong>Write ONE WORD ONLY for each answer.</strong></p>
+
+      <p><strong>Elephant translocation</strong></p>
+
+      <p><strong>Reasons for overpopulation at Majete National Park</strong></p>
+      <p>strict enforcement of anti-poaching laws</p>
+      <p>successful breeding</p>
+
+      <p><strong>Problems caused by elephant overpopulation</strong></p>
+      <p>greater competition, causing hunger for elephants</p>
+      <p>damage to <input type="text" name="answer1" /> in the park</p>
+
+      <p><strong>The translocation process</strong></p>
+      <p>a suitable group of elephants from the same <input type="text" name="answer2" /> was selected</p>
+      <p>vets and park staff made use of <input type="text" name="answer3" /> to help guide the elephants into an open plain</p>
+      <p>elephants were immobilised with tranquilisers</p>
+      <p>– this process had to be completed quickly to reduce <input type="text" name="answer4" /></p>
+      <p>– elephants had to be turned on their <input type="text" name="answer5" /> to avoid damage to their lungs</p>
+      <p>– elephants’ <input type="text" name="answer6" /> had to be monitored constantly</p>
+      <p>– tracking devices were fitted to the matriarchs</p>
+      <p>– data including the size of their tusks and <input type="text" name="answer7" /> was taken</p>
+      <p>elephants were taken by truck to their new reserve</p>
+
+      <p><strong>Advantages of translocation at Nkhotakota Wildlife Park</strong></p>
+      <p><input type="text" name="answer8" /> opportunities</p>
+      <p>a reduction in the number of poachers and <input type="text" name="answer9" /></p>
+      <p>an example of conservation that other parks can follow</p>
+      <p>an increase in <input type="text" name="answer10" /> as a contributor to GDP.</p>
+    </section>
+
+    <section class="vocab-window" data-window-id="listening4-vocab">
+      <div class="vocab-header">Vocabulary (drag me)</div>
+      <ul class="vocab-list">
+        <li><span class="vocab-en">translocation</span><span class="vocab-ru">— переселение</span></li>
+        <li><span class="vocab-en">overpopulation</span><span class="vocab-ru">— перенаселение</span></li>
+        <li><span class="vocab-en">poachers</span><span class="vocab-ru">— браконьеры</span></li>
+        <li><span class="vocab-en">fences</span><span class="vocab-ru">— ограждения</span></li>
+        <li><span class="vocab-en">family</span><span class="vocab-ru">— семья</span></li>
+        <li><span class="vocab-en">helicopters</span><span class="vocab-ru">— вертолёты</span></li>
+        <li><span class="vocab-en">stress</span><span class="vocab-ru">— стресс</span></li>
+        <li><span class="vocab-en">sides</span><span class="vocab-ru">— бока</span></li>
+        <li><span class="vocab-en">breathing</span><span class="vocab-ru">— дыхание</span></li>
+        <li><span class="vocab-en">feet</span><span class="vocab-ru">— ступни</span></li>
+        <li><span class="vocab-en">employment</span><span class="vocab-ru">— занятость</span></li>
+        <li><span class="vocab-en">tourism</span><span class="vocab-ru">— туризм</span></li>
+      </ul>
+    </section>
+
+    <div class="nav">
+      <button id="checkAnswersBtn" type="button">Check Answers</button>
+      <a id="transcriptBtn" class="disabled-link" href="transcript4.html" aria-disabled="true">Transcript 4</a>
+      <a href="mainlistening.html">Back to Listening List</a>
+    </div>
+    <div class="result" id="result"></div>
+  </main>
+
+  <script>
+    const player = document.getElementById('audioPlayer');
+    const speedButtons = document.querySelectorAll('.speed-btn');
+    const answerInputs = document.querySelectorAll('input[type="text"]');
+    const result = document.getElementById('result');
+    const checkAnswersBtn = document.getElementById('checkAnswersBtn');
+    const transcriptBtn = document.getElementById('transcriptBtn');
+    const storageKey = 'listening4Answers';
+    const answerKey = ['fences', 'family', 'helicopters', 'stress', 'sides', 'breathing', 'feet', 'employment', 'weapons', 'tourism'];
+    let isChecked = false;
+
+    const loadAnswers = () => {
+      const saved = JSON.parse(localStorage.getItem(storageKey) || '[]');
+      answerInputs.forEach((input, index) => { input.value = saved[index] || ''; });
+    };
+
+    const saveAnswers = () => {
+      const values = [...answerInputs].map((input) => input.value.trim());
+      localStorage.setItem(storageKey, JSON.stringify(values));
+      return values;
+    };
+
+    const lockTranscript = () => {
+      transcriptBtn.classList.add('disabled-link');
+      transcriptBtn.setAttribute('aria-disabled', 'true');
+    };
+
+    const unlockTranscript = () => {
+      transcriptBtn.classList.remove('disabled-link');
+      transcriptBtn.setAttribute('aria-disabled', 'false');
+    };
+
+    speedButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const speed = Number(button.dataset.speed);
+        player.playbackRate = speed;
+        speedButtons.forEach((btn) => btn.classList.remove('active'));
+        button.classList.add('active');
+      });
+    });
+
+    answerInputs.forEach((input) => {
+      input.addEventListener('input', () => {
+        saveAnswers();
+        if (isChecked) {
+          input.classList.remove('correct-answer', 'wrong-answer');
+          lockTranscript();
+          isChecked = false;
+        }
+      });
+    });
+
+    checkAnswersBtn.addEventListener('click', () => {
+      const values = saveAnswers();
+      let score = 0;
+
+      values.forEach((value, index) => {
+        const isCorrect = value.toLowerCase() === answerKey[index];
+        answerInputs[index].classList.remove('correct-answer', 'wrong-answer');
+        answerInputs[index].classList.add(isCorrect ? 'correct-answer' : 'wrong-answer');
+        if (isCorrect) {
+          score += 1;
+        }
+      });
+
+      result.textContent = `Your score: ${score}/10`;
+      unlockTranscript();
+      isChecked = true;
+    });
+
+    transcriptBtn.addEventListener('click', () => {
+      if (transcriptBtn.classList.contains('disabled-link')) {
+        return;
+      }
+      saveAnswers();
+    });
+    loadAnswers();
+    lockTranscript();
+  </script>
+  <script src="accessibility-controls.js"></script>
+  <script src="vocab-window.js"></script>
+</body>
+</html>

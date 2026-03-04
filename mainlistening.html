@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Main Listening</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+    }
+
+    .container {
+      text-align: center;
+      background: #ffffff;
+      padding: 28px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      width: min(92%, 650px);
+    }
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    .lessons {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      background: #2563eb;
+      color: #fff;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .btn[hidden] {
+      display: none;
+    }
+
+    .btn.disabled {
+      background: #64748b;
+      pointer-events: none;
+      cursor: default;
+    }
+
+    .back {
+      margin-top: 18px;
+    }
+  </style>
+  <link rel="stylesheet" href="accessibility-controls.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Select a Listening Test</h1>
+
+    <div class="lessons">
+      <a class="btn" href="listening1.html">Listening 1</a>
+      <a class="btn" href="listening2.html">Listening 2</a>
+      <a class="btn" href="listening3.html">Listening 3</a>
+      <a class="btn" href="listening4.html">Listening 4</a>
+      <a class="btn" href="listening5.html" hidden>Listening 5</a>
+      <a class="btn" href="listening6.html" hidden>Listening 6</a>
+      <a class="btn" href="listening7.html" hidden>Listening 7</a>
+      <a class="btn" href="listening8.html" hidden>Listening 8</a>
+      <a class="btn" href="listening9.html" hidden>Listening 9</a>
+      <a class="btn" href="listening10.html" hidden>Listening 10</a>
+    </div>
+
+    <div class="back">
+      <a class="btn" href="index.html">Back to Main Page</a>
+    </div>
+  </main>
+</body>
+<script src="accessibility-controls.js"></script>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Listening 10</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f5f7fb; color: #1f2937; }
+    .page { max-width: 900px; margin: 0 auto; padding: 24px 18px 40px; }
+    .card { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); margin-bottom: 20px; }
+    .center { text-align: center; }
+    .speed-controls { margin-top: 14px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+    .speed-btn { border: none; background: #2563eb; color: #fff; border-radius: 8px; padding: 8px 12px; font-weight: 600; cursor: pointer; }
+    .speed-btn.active { background: #1d4ed8; }
+    .answers { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .answers label { display: flex; align-items: center; gap: 8px; }
+    input[type="text"] { width: 120px; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 15px; transition: background-color 0.2s ease, border-color 0.2s ease; }
+    .correct-answer { background: #dcfce7; border-color: #22c55e; }
+    .wrong-answer { background: #fee2e2; border-color: #ef4444; }
+    .vocab-note { background: #fff; border-radius: 12px; padding: 16px 20px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); margin-bottom: 20px; }
+    .vocab-note p { margin: 0; line-height: 1.6; }
+    .nav { margin-top: 18px; text-align: center; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+    .nav a, .nav button { text-decoration: none; background: #2563eb; color: #fff; padding: 10px 14px; border-radius: 8px; font-weight: 600; border: none; cursor: pointer; }
+    .disabled-link { opacity: 0.45; pointer-events: none; cursor: not-allowed; }
+    .result { text-align: center; margin-top: 12px; font-weight: 700; }
+  </style>
+  <link rel="stylesheet" href="accessibility-controls.css" />
+  <link rel="stylesheet" href="vocab-window.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="card center">
+      <h1>Listening 10</h1>
+      <audio id="audioPlayer" controls>
+        <source src="audio10.mp3" type="audio/mpeg" />
+      </audio>
+      <div class="speed-controls">
+        <button class="speed-btn" data-speed="0.5">0.5x</button>
+        <button class="speed-btn" data-speed="0.75">0.75x</button>
+        <button class="speed-btn active" data-speed="1">1.0x</button>
+        <button class="speed-btn" data-speed="1.25">1.25x</button>
+        <button class="speed-btn" data-speed="1.5">1.5x</button>
+        <button class="speed-btn" data-speed="2">2.0x</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Listening 10 Questions (Placeholder)</h2>
+      <p>Write ONE WORD ONLY for each answer.</p>
+      <div class="answers">
+        <label>1 <input type="text" name="answer1" /></label>
+        <label>2 <input type="text" name="answer2" /></label>
+        <label>3 <input type="text" name="answer3" /></label>
+        <label>4 <input type="text" name="answer4" /></label>
+        <label>5 <input type="text" name="answer5" /></label>
+        <label>6 <input type="text" name="answer6" /></label>
+        <label>7 <input type="text" name="answer7" /></label>
+        <label>8 <input type="text" name="answer8" /></label>
+        <label>9 <input type="text" name="answer9" /></label>
+        <label>10 <input type="text" name="answer10" /></label>
+      </div>
+    </section>
+
+    <section class="vocab-window" data-window-id="listening10-vocab">
+      <div class="vocab-header">Vocabulary (drag me)</div>
+      <ul class="vocab-list">
+        <li><span class="vocab-en">transcript</span><span class="vocab-ru">— транскрипт</span></li>
+        <li><span class="vocab-en">keyword</span><span class="vocab-ru">— ключевое слово</span></li>
+        <li><span class="vocab-en">distractor</span><span class="vocab-ru">— отвлекающий вариант</span></li>
+        <li><span class="vocab-en">paraphrase</span><span class="vocab-ru">— перефразирование</span></li>
+        <li><span class="vocab-en">inference</span><span class="vocab-ru">— вывод</span></li>
+        <li><span class="vocab-en">synonym</span><span class="vocab-ru">— синоним</span></li>
+        <li><span class="vocab-en">prediction</span><span class="vocab-ru">— прогнозирование</span></li>
+        <li><span class="vocab-en">context</span><span class="vocab-ru">— контекст</span></li>
+        <li><span class="vocab-en">note-taking</span><span class="vocab-ru">— конспектирование</span></li>
+        <li><span class="vocab-en">spelling</span><span class="vocab-ru">— правописание</span></li>
+        <li><span class="vocab-en">singular</span><span class="vocab-ru">— единственное число</span></li>
+        <li><span class="vocab-en">plural</span><span class="vocab-ru">— множественное число</span></li>
+      </ul>
+    </section>
+
+    <div class="nav">
+      <button id="checkAnswersBtn" type="button">Check Answers</button>
+      <a id="transcriptBtn" class="disabled-link" href="transcript10.html" aria-disabled="true">Transcript 10</a>
+      <a href="mainlistening.html">Back to Listening List</a>
+    </div>
+    <div class="result" id="result"></div>
+  </main>
+
+  <script>
+    const player = document.getElementById('audioPlayer');
+    const speedButtons = document.querySelectorAll('.speed-btn');
+    const answerInputs = document.querySelectorAll('input[type="text"]');
+    const result = document.getElementById('result');
+    const checkAnswersBtn = document.getElementById('checkAnswersBtn');
+    const transcriptBtn = document.getElementById('transcriptBtn');
+    const storageKey = 'listening10Answers';
+    const answerKey = ['tbd1', 'tbd2', 'tbd3', 'tbd4', 'tbd5', 'tbd6', 'tbd7', 'tbd8', 'tbd9', 'tbd10'];
+    let isChecked = false;
+
+    const loadAnswers = () => {
+      const saved = JSON.parse(localStorage.getItem(storageKey) || '[]');
+      answerInputs.forEach((input, index) => { input.value = saved[index] || ''; });
+    };
+
+    const saveAnswers = () => {
+      const values = [...answerInputs].map((input) => input.value.trim());
+      localStorage.setItem(storageKey, JSON.stringify(values));
+      return values;
+    };
+
+    const lockTranscript = () => {
+      transcriptBtn.classList.add('disabled-link');
+      transcriptBtn.setAttribute('aria-disabled', 'true');
+    };
+
+    const unlockTranscript = () => {
+      transcriptBtn.classList.remove('disabled-link');
+      transcriptBtn.setAttribute('aria-disabled', 'false');
+    };
+
+    speedButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const speed = Number(button.dataset.speed);
+        player.playbackRate = speed;
+        speedButtons.forEach((btn) => btn.classList.remove('active'));
+        button.classList.add('active');
+      });
+    });
+
+    answerInputs.forEach((input) => {
+      input.addEventListener('input', () => {
+        saveAnswers();
+        if (isChecked) {
+          input.classList.remove('correct-answer', 'wrong-answer');
+          lockTranscript();
+          isChecked = false;
+        }
+      });
+    });
+
+    checkAnswersBtn.addEventListener('click', () => {
+      const values = saveAnswers();
+      let score = 0;
+
+      values.forEach((value, index) => {
+        const isCorrect = value.toLowerCase() === answerKey[index];
+        answerInputs[index].classList.remove('correct-answer', 'wrong-answer');
+        answerInputs[index].classList.add(isCorrect ? 'correct-answer' : 'wrong-answer');
+        if (isCorrect) {
+          score += 1;
+        }
+      });
+
+      result.textContent = `Your score: ${score}/10`;
+      unlockTranscript();
+      isChecked = true;
+    });
+
+    transcriptBtn.addEventListener('click', () => {
+      if (transcriptBtn.classList.contains('disabled-link')) {
+        return;
+      }
+      saveAnswers();
+    });
+    loadAnswers();
+    lockTranscript();
+  </script>
+  <script src="accessibility-controls.js"></script>
+  <script src="vocab-window.js"></script>
+</body>
+</html>

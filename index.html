@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IELTS Practice</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+    }
+
+    .container {
+      text-align: center;
+      background: #ffffff;
+      padding: 32px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      width: min(90%, 520px);
+    }
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: 24px;
+      font-size: 28px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      background: #2563eb;
+      color: #fff;
+      padding: 14px 16px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .btn.secondary {
+      background: #64748b;
+      pointer-events: none;
+      cursor: default;
+    }
+  </style>
+  <link rel="stylesheet" href="accessibility-controls.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Welcome to IELTS Practice</h1>
+    <div class="grid">
+      <a class="btn" href="mainlistening.html">Listening</a>
+      <a class="btn secondary" href="#">Reading</a>
+      <a class="btn secondary" href="#">Writing</a>
+      <a class="btn secondary" href="#">Speaking</a>
+    </div>
+  </main>
+</body>
+<script src="accessibility-controls.js"></script>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Listening 3</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f5f7fb; color: #1f2937; }
+    .page { max-width: 900px; margin: 0 auto; padding: 24px 18px 40px; }
+    .card { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); margin-bottom: 20px; }
+    .center { text-align: center; }
+    .speed-controls { margin-top: 14px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+    .speed-btn { border: none; background: #2563eb; color: #fff; border-radius: 8px; padding: 8px 12px; font-weight: 600; cursor: pointer; }
+    .speed-btn.active { background: #1d4ed8; }
+    .answers { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .answers label { display: flex; align-items: center; gap: 8px; }
+    input[type="text"] { width: 120px; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 15px; transition: background-color 0.2s ease, border-color 0.2s ease; }
+    .correct-answer { background: #dcfce7; border-color: #22c55e; }
+    .wrong-answer { background: #fee2e2; border-color: #ef4444; }
+    .vocab-note { background: #fff; border-radius: 12px; padding: 16px 20px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); margin-bottom: 20px; }
+    .vocab-note p { margin: 0; line-height: 1.6; }
+    .nav { margin-top: 18px; text-align: center; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+    .nav a, .nav button { text-decoration: none; background: #2563eb; color: #fff; padding: 10px 14px; border-radius: 8px; font-weight: 600; border: none; cursor: pointer; }
+    .disabled-link { opacity: 0.45; pointer-events: none; cursor: not-allowed; }
+    .result { text-align: center; margin-top: 12px; font-weight: 700; }
+  </style>
+  <link rel="stylesheet" href="accessibility-controls.css" />
+  <link rel="stylesheet" href="vocab-window.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="card center">
+      <h1>Listening 3</h1>
+      <audio id="audioPlayer" controls>
+        <source src="audio3.mp3" type="audio/mpeg" />
+      </audio>
+      <div class="speed-controls">
+        <button class="speed-btn" data-speed="0.5">0.5x</button>
+        <button class="speed-btn" data-speed="0.75">0.75x</button>
+        <button class="speed-btn active" data-speed="1">1.0x</button>
+        <button class="speed-btn" data-speed="1.25">1.25x</button>
+        <button class="speed-btn" data-speed="1.5">1.5x</button>
+        <button class="speed-btn" data-speed="2">2.0x</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Complete the notes below.</h2>
+      <p><strong>Write ONE WORD ONLY for each answer.</strong></p>
+
+      <p><strong>Microplastics</strong></p>
+
+      <p><strong>Where microplastics come from</strong></p>
+      <p>fibres from some <input type="text" name="answer1" /> during washing</p>
+      <p>the breakdown of large pieces of plastic</p>
+      <p>waste from industry</p>
+      <p>the action of vehicle tyres on roads</p>
+
+      <p><strong>Effects of microplastics</strong></p>
+      <p>They cause injuries to the <input type="text" name="answer2" /> of wildlife and affect their digestive systems.</p>
+      <p>They enter the food chain, e.g., in bottled and tap water, <input type="text" name="answer3" /> and seafood.</p>
+      <p>They may not affect human health, but they are already banned in skin cleaning products and <input type="text" name="answer4" /> in some countries.</p>
+      <p>Microplastics enter the soil through the air, rain and <input type="text" name="answer5" />.</p>
+
+      <p><strong>Microplastics in the soil – a study by Anglia Ruskin University</strong></p>
+      <p>Earthworms are important because they add <input type="text" name="answer6" /> to the soil.</p>
+      <p>The study aimed to find whether microplastics in earthworms affect the <input type="text" name="answer7" /> of plants.</p>
+      <p>The study found that microplastics caused:</p>
+      <p><input type="text" name="answer8" /> loss in earthworms</p>
+      <p>fewer seeds to germinate</p>
+      <p>a rise in the level of <input type="text" name="answer9" /> in the soil.</p>
+
+      <p><strong>The study concluded:</strong></p>
+      <p>soil should be seen as an important natural process.</p>
+      <p>changes to soil damage both ecosystems and <input type="text" name="answer10" /></p>
+    </section>
+
+    <section class="vocab-window" data-window-id="listening3-vocab">
+      <div class="vocab-header">Vocabulary (drag me)</div>
+      <ul class="vocab-list">
+        <li><span class="vocab-en">microplastics</span><span class="vocab-ru">— микропластик</span></li>
+        <li><span class="vocab-en">fibres</span><span class="vocab-ru">— волокна</span></li>
+        <li><span class="vocab-en">clothing</span><span class="vocab-ru">— одежда</span></li>
+        <li><span class="vocab-en">mouths</span><span class="vocab-ru">— рты</span></li>
+        <li><span class="vocab-en">salt</span><span class="vocab-ru">— соль</span></li>
+        <li><span class="vocab-en">toothpaste</span><span class="vocab-ru">— зубная паста</span></li>
+        <li><span class="vocab-en">fertilisers</span><span class="vocab-ru">— удобрения</span></li>
+        <li><span class="vocab-en">nutrients</span><span class="vocab-ru">— питательные вещества</span></li>
+        <li><span class="vocab-en">growth</span><span class="vocab-ru">— рост</span></li>
+        <li><span class="vocab-en">weight</span><span class="vocab-ru">— вес</span></li>
+        <li><span class="vocab-en">acid</span><span class="vocab-ru">— кислота</span></li>
+        <li><span class="vocab-en">society</span><span class="vocab-ru">— общество</span></li>
+      </ul>
+    </section>
+
+    <div class="nav">
+      <button id="checkAnswersBtn" type="button">Check Answers</button>
+      <a id="transcriptBtn" class="disabled-link" href="transcript3.html" aria-disabled="true">Transcript 3</a>
+      <a href="mainlistening.html">Back to Listening List</a>
+    </div>
+    <div class="result" id="result"></div>
+  </main>
+
+  <script>
+    const player = document.getElementById('audioPlayer');
+    const speedButtons = document.querySelectorAll('.speed-btn');
+    const answerInputs = document.querySelectorAll('input[type="text"]');
+    const result = document.getElementById('result');
+    const checkAnswersBtn = document.getElementById('checkAnswersBtn');
+    const transcriptBtn = document.getElementById('transcriptBtn');
+    const storageKey = 'listening3Answers';
+    const answerKey = [
+      ['clothing'],
+      ['mouths'],
+      ['salt'],
+      ['toothpaste'],
+      ['fertilizers', 'fertilisers'],
+      ['nutrients'],
+      ['growth'],
+      ['weight'],
+      ['acid'],
+      ['society']
+    ];
+    let isChecked = false;
+
+    const loadAnswers = () => {
+      const saved = JSON.parse(localStorage.getItem(storageKey) || '[]');
+      answerInputs.forEach((input, index) => { input.value = saved[index] || ''; });
+    };
+
+    const saveAnswers = () => {
+      const values = [...answerInputs].map((input) => input.value.trim());
+      localStorage.setItem(storageKey, JSON.stringify(values));
+      return values;
+    };
+
+    const lockTranscript = () => {
+      transcriptBtn.classList.add('disabled-link');
+      transcriptBtn.setAttribute('aria-disabled', 'true');
+    };
+
+    const unlockTranscript = () => {
+      transcriptBtn.classList.remove('disabled-link');
+      transcriptBtn.setAttribute('aria-disabled', 'false');
+    };
+
+    speedButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const speed = Number(button.dataset.speed);
+        player.playbackRate = speed;
+        speedButtons.forEach((btn) => btn.classList.remove('active'));
+        button.classList.add('active');
+      });
+    });
+
+    answerInputs.forEach((input) => {
+      input.addEventListener('input', () => {
+        saveAnswers();
+        if (isChecked) {
+          input.classList.remove('correct-answer', 'wrong-answer');
+          lockTranscript();
+          isChecked = false;
+        }
+      });
+    });
+
+    checkAnswersBtn.addEventListener('click', () => {
+      const values = saveAnswers();
+      let score = 0;
+
+      values.forEach((value, index) => {
+        const normalized = value.toLowerCase();
+        const isCorrect = answerKey[index].includes(normalized);
+        answerInputs[index].classList.remove('correct-answer', 'wrong-answer');
+        answerInputs[index].classList.add(isCorrect ? 'correct-answer' : 'wrong-answer');
+        if (isCorrect) {
+          score += 1;
+        }
+      });
+
+      result.textContent = `Your score: ${score}/10`;
+      unlockTranscript();
+      isChecked = true;
+    });
+
+    transcriptBtn.addEventListener('click', () => {
+      if (transcriptBtn.classList.contains('disabled-link')) {
+        return;
+      }
+      saveAnswers();
+    });
+    loadAnswers();
+    lockTranscript();
+  </script>
+  <script src="accessibility-controls.js"></script>
+  <script src="vocab-window.js"></script>
+</body>
+</html>

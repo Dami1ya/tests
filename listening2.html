@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Listening 2</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f5f7fb; color: #1f2937; }
+    .page { max-width: 900px; margin: 0 auto; padding: 24px 18px 40px; }
+    .card { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); margin-bottom: 20px; }
+    .center { text-align: center; }
+    .speed-controls { margin-top: 14px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+    .speed-btn { border: none; background: #2563eb; color: #fff; border-radius: 8px; padding: 8px 12px; font-weight: 600; cursor: pointer; }
+    .speed-btn.active { background: #1d4ed8; }
+    .answers { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .answers label { display: flex; align-items: center; gap: 8px; }
+    input[type="text"] { width: 120px; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 15px; transition: background-color 0.2s ease, border-color 0.2s ease; }
+    .correct-answer { background: #dcfce7; border-color: #22c55e; }
+    .wrong-answer { background: #fee2e2; border-color: #ef4444; }
+    .vocab-note { background: #fff; border-radius: 12px; padding: 16px 20px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); margin-bottom: 20px; }
+    .vocab-note p { margin: 0; line-height: 1.6; }
+    .nav { margin-top: 18px; text-align: center; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+    .nav a, .nav button { text-decoration: none; background: #2563eb; color: #fff; padding: 10px 14px; border-radius: 8px; font-weight: 600; border: none; cursor: pointer; }
+    .disabled-link { opacity: 0.45; pointer-events: none; cursor: not-allowed; }
+    .result { text-align: center; margin-top: 12px; font-weight: 700; }
+  </style>
+  <link rel="stylesheet" href="accessibility-controls.css" />
+  <link rel="stylesheet" href="vocab-window.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="card center">
+      <h1>Listening 2</h1>
+      <audio id="audioPlayer" controls>
+        <source src="audio2.mp3" type="audio/mpeg" />
+      </audio>
+      <div class="speed-controls">
+        <button class="speed-btn" data-speed="0.5">0.5x</button>
+        <button class="speed-btn" data-speed="0.75">0.75x</button>
+        <button class="speed-btn active" data-speed="1">1.0x</button>
+        <button class="speed-btn" data-speed="1.25">1.25x</button>
+        <button class="speed-btn" data-speed="1.5">1.5x</button>
+        <button class="speed-btn" data-speed="2">2.0x</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Complete the notes below.</h2>
+      <p><strong>Write ONE WORD ONLY for each answer.</strong></p>
+
+      <p><strong>Tree planting</strong></p>
+      <p><strong>Reforestation projects should:</strong></p>
+      <p>– include a range of tree species</p>
+      <p>– not include invasive species because of possible <input type="text" name="answer1" /> with native species</p>
+      <p>– aim to capture carbon, protect the environment and provide sustainable sources of <input type="text" name="answer2" /> for local people</p>
+      <p>– use tree seeds with a high genetic diversity to increase resistance to <input type="text" name="answer3" /> and climate change</p>
+      <p>– plant trees on previously forested land which is in a bad condition, not select land which is being used for <input type="text" name="answer4" /></p>
+
+      <p><strong>Large-scale reforestation projects</strong></p>
+      <p>– Base planning decisions on information from accurate <input type="text" name="answer5" /></p>
+      <p>– Drones are useful for identifying areas in Brazil which are endangered by keeping <input type="text" name="answer6" /> and illegal logging.</p>
+
+      <p><strong>Lampang Province, Northern Thailand</strong></p>
+      <p>– A forest was restored in an area damaged by mining.</p>
+      <p>– A variety of native fig trees were planted, which are important for</p>
+      <p>+ supporting many wildlife species</p>
+      <p>+ increasing the <input type="text" name="answer7" /> of recovery by attracting animals and birds, e.g., <input type="text" name="answer8" /> were soon attracted to the area.</p>
+
+      <p><strong>Involving local communities</strong></p>
+      <p>– Destruction of mangrove forests in Madagascar made it difficult for people to make a living from <input type="text" name="answer9" /></p>
+      <p>– The mangrove reforestation project:</p>
+      <p>+ provided employment for local people</p>
+      <p>+ restored a healthy ecosystem</p>
+      <p>+ protects against the higher risk of <input type="text" name="answer10" />.</p>
+    </section>
+
+    <section class="vocab-window" data-window-id="listening2-vocab">
+      <div class="vocab-header">Vocabulary (drag me)</div>
+      <ul class="vocab-list">
+        <li><span class="vocab-en">reforestation</span><span class="vocab-ru">— лесовосстановление</span></li>
+        <li><span class="vocab-en">biodiversity</span><span class="vocab-ru">— биоразнообразие</span></li>
+        <li><span class="vocab-en">invasive</span><span class="vocab-ru">— инвазивный</span></li>
+        <li><span class="vocab-en">competition</span><span class="vocab-ru">— конкуренция</span></li>
+        <li><span class="vocab-en">conservation</span><span class="vocab-ru">— охрана природы</span></li>
+        <li><span class="vocab-en">agriculture</span><span class="vocab-ru">— сельское хозяйство</span></li>
+        <li><span class="vocab-en">maps</span><span class="vocab-ru">— карты</span></li>
+        <li><span class="vocab-en">cattle</span><span class="vocab-ru">— скот</span></li>
+        <li><span class="vocab-en">dispersers</span><span class="vocab-ru">— распространители семян</span></li>
+        <li><span class="vocab-en">monkeys</span><span class="vocab-ru">— обезьяны</span></li>
+        <li><span class="vocab-en">mangroves</span><span class="vocab-ru">— мангровые леса</span></li>
+        <li><span class="vocab-en">flooding</span><span class="vocab-ru">— наводнение</span></li>
+      </ul>
+    </section>
+
+    <div class="nav">
+      <button id="checkAnswersBtn" type="button">Check Answers</button>
+      <a id="transcriptBtn" class="disabled-link" href="transcript2.html" aria-disabled="true">Transcript 2</a>
+      <a href="mainlistening.html">Back to Listening List</a>
+    </div>
+    <div class="result" id="result"></div>
+  </main>
+
+  <script>
+    const player = document.getElementById('audioPlayer');
+    const speedButtons = document.querySelectorAll('.speed-btn');
+    const answerInputs = document.querySelectorAll('input[type="text"]');
+    const result = document.getElementById('result');
+    const checkAnswersBtn = document.getElementById('checkAnswersBtn');
+    const transcriptBtn = document.getElementById('transcriptBtn');
+    const storageKey = 'listening2Answers';
+    const answerKey = ['competition', 'food', 'disease', 'agriculture', 'maps', 'cattle', 'speed', 'monkeys', 'fishing', 'flooding'];
+    let isChecked = false;
+
+    const loadAnswers = () => {
+      const saved = JSON.parse(localStorage.getItem(storageKey) || '[]');
+      answerInputs.forEach((input, index) => { input.value = saved[index] || ''; });
+    };
+
+    const saveAnswers = () => {
+      const values = [...answerInputs].map((input) => input.value.trim());
+      localStorage.setItem(storageKey, JSON.stringify(values));
+      return values;
+    };
+
+    const lockTranscript = () => {
+      transcriptBtn.classList.add('disabled-link');
+      transcriptBtn.setAttribute('aria-disabled', 'true');
+    };
+
+    const unlockTranscript = () => {
+      transcriptBtn.classList.remove('disabled-link');
+      transcriptBtn.setAttribute('aria-disabled', 'false');
+    };
+
+    speedButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const speed = Number(button.dataset.speed);
+        player.playbackRate = speed;
+        speedButtons.forEach((btn) => btn.classList.remove('active'));
+        button.classList.add('active');
+      });
+    });
+
+    answerInputs.forEach((input) => {
+      input.addEventListener('input', () => {
+        saveAnswers();
+        if (isChecked) {
+          input.classList.remove('correct-answer', 'wrong-answer');
+          lockTranscript();
+          isChecked = false;
+        }
+      });
+    });
+
+    checkAnswersBtn.addEventListener('click', () => {
+      const values = saveAnswers();
+      let score = 0;
+
+      values.forEach((value, index) => {
+        const isCorrect = value.toLowerCase() === answerKey[index];
+        answerInputs[index].classList.remove('correct-answer', 'wrong-answer');
+        answerInputs[index].classList.add(isCorrect ? 'correct-answer' : 'wrong-answer');
+        if (isCorrect) {
+          score += 1;
+        }
+      });
+
+      result.textContent = `Your score: ${score}/10`;
+      unlockTranscript();
+      isChecked = true;
+    });
+
+    transcriptBtn.addEventListener('click', () => {
+      if (transcriptBtn.classList.contains('disabled-link')) {
+        return;
+      }
+      saveAnswers();
+    });
+    loadAnswers();
+    lockTranscript();
+  </script>
+  <script src="accessibility-controls.js"></script>
+  <script src="vocab-window.js"></script>
+</body>
+</html>

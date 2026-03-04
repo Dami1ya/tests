@@ -1,0 +1,82 @@
+.vocab-window {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 9998;
+  width: min(92vw, 320px);
+  max-height: min(62vh, 460px);
+  overflow: auto;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
+}
+
+.vocab-header {
+  position: sticky;
+  top: 0;
+  background: #2563eb;
+  color: #fff;
+  padding: 8px 10px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: move;
+  user-select: none;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.vocab-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vocab-toggle {
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  border-radius: 6px;
+  width: 22px;
+  height: 22px;
+  line-height: 1;
+  padding: 0;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.vocab-list {
+  margin: 0;
+  padding: 10px 14px 12px 26px;
+}
+
+.vocab-window.minimized .vocab-list {
+  display: none;
+}
+
+.vocab-list li {
+  margin: 5px 0;
+  line-height: 1.4;
+}
+
+.vocab-en {
+  font-weight: 700;
+}
+
+.vocab-ru {
+  color: #334155;
+  margin-left: 4px;
+}
+
+@media (max-width: 640px) {
+  .vocab-window {
+    width: calc(100vw - 20px);
+    right: 10px;
+    bottom: 10px;
+    max-height: 52vh;
+  }
+}
